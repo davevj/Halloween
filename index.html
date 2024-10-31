@@ -3,17 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Device Info Collector</title>
+    <title>Happy Halloween!</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .info { margin: 10px 0; }
-        .info-label { font-weight: bold; }
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            background-color: #222; 
+            color: #ffcc00; 
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff6347;
+        }
+        p {
+            font-size: 1.2em;
+            color: #ffcc00;
+        }
+        .info {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        .info-label { 
+            font-weight: bold; 
+            color: #ffffff; 
+        }
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <h1>Device Information Collector</h1>
+    <h1>🎃 Happy Halloween! 🎃</h1>
+    <p>Thanks for scanning a random QR code. Here's your device info.</p>
+    <p>You wish you were phished or scammed, but it's worse! You've been Rick-rolled.</p>
+    <!-- Embedded Rick Astley video with correct video ID -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- Device information display -->
     <div id="info"></div>
-
     <script>
         // Helper function to get the browser name and version
         function getBrowserInfo() {
@@ -21,7 +52,6 @@
             let browserName = "Unknown";
             let fullVersion = "Unknown";
             let temp;
-
             if ((temp = ua.match(/(opera|chrome|safari|firefox|msie|trident(?:\/?))\/?\s*(\d+)/i)) != null) {
                 if (/trident/i.test(temp[1])) {
                     browserName = "IE";
@@ -35,7 +65,6 @@
             }
             return `${browserName} ${fullVersion}`;
         }
-
         // Display information on the page
         function displayInfo(data) {
             const infoDiv = document.getElementById("info");
@@ -48,7 +77,6 @@
             `;
             infoDiv.innerHTML = deviceInfo;
         }
-
         // Fetch IP address and location data
         async function fetchIpData() {
             try {
@@ -60,7 +88,6 @@
                 displayInfo({ ip: "Unavailable", city: "Unknown", region: "Unknown", country: "Unknown" });
             }
         }
-
         // Run the fetch and display functions
         fetchIpData();
     </script>
